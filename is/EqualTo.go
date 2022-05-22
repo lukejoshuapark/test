@@ -3,7 +3,7 @@ package is
 import (
 	"reflect"
 
-	"gitlab.com/ljpcore/golib/test"
+	"github.com/lukejoshuapark/test"
 )
 
 // EqualToAssertion provides the assertion logic for EqualTo.

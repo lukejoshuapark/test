@@ -3,7 +3,7 @@ package has
 import (
 	"testing"
 
-	"gitlab.com/ljpcore/golib/test/is"
+	"github.com/lukejoshuapark/test/is"
 )
 
 func TestKeyThat(t *testing.T) {

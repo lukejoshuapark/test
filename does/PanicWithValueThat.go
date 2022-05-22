@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"gitlab.com/ljpcore/golib/test"
+	"github.com/lukejoshuapark/test"
 )
 
 // PanicWithValueThatAssertion provides the assertion logic for

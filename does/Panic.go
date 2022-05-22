@@ -3,7 +3,7 @@ package does
 import (
 	"reflect"
 
-	"gitlab.com/ljpcore/golib/test"
+	"github.com/lukejoshuapark/test"
 )
 
 // PanicAssertion provides the assertion logic for Panic.

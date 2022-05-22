@@ -3,7 +3,7 @@ package does
 import (
 	"testing"
 
-	"gitlab.com/ljpcore/golib/test/is"
+	"github.com/lukejoshuapark/test/is"
 )
 
 func TestPanicWithValueThat(t *testing.T) {

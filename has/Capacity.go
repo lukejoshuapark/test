@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"gitlab.com/ljpcore/golib/test"
+	"github.com/lukejoshuapark/test"
 )
 
 // CapacityAssertion provides the assertion logic for Capacity.

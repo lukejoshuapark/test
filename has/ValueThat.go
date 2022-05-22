@@ -3,7 +3,7 @@ package has
 import (
 	"reflect"
 
-	"gitlab.com/ljpcore/golib/test"
+	"github.com/lukejoshuapark/test"
 )
 
 // ValueThatAssertion provides the assertion logic for ValueThat.
