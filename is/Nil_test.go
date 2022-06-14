@@ -2,6 +2,7 @@ package is
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"os"
 	"testing"
@@ -26,12 +27,14 @@ func TestNil(t *testing.T) {
 	}
 
 	for i, testCase := range testCases {
-		// Arrange and Act.
-		r := Nil.Evaluate(testCase.given)
+		t.Run(fmt.Sprintf("Test Case %v", i), func(t *testing.T) {
+			// Arrange and Act.
+			r := Nil.Evaluate(testCase.given)
 
-		// Assert.
-		if r.Pass != testCase.shouldPass {
-			t.Fatalf("expected testCase %v Pass to be %v but was %v: %v", i, testCase.shouldPass, r.Pass, r.Message)
-		}
+			// Assert.
+			if r.Pass != testCase.shouldPass {
+				t.Fatalf("expected Pass to be %v but was %v: %v", testCase.shouldPass, r.Pass, r.Message)
+			}
+		})
 	}
 }

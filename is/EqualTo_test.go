@@ -1,6 +1,7 @@
 package is
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"testing"
@@ -23,12 +24,14 @@ func TestEqualTo(t *testing.T) {
 	}
 
 	for i, testCase := range testCases {
-		// Arrange and Act.
-		r := EqualTo(testCase.expected).Evaluate(testCase.actual)
+		t.Run(fmt.Sprintf("Test Case %v", i), func(t *testing.T) {
+			// Arrange and Act.
+			r := EqualTo(testCase.expected).Evaluate(testCase.actual)
 
-		// Assert.
-		if r.Pass != testCase.shouldPass {
-			t.Fatalf("expected testCase %v Pass to be %v but was %v: %v", i, testCase.shouldPass, r.Pass, r.Message)
-		}
+			// Assert.
+			if r.Pass != testCase.shouldPass {
+				t.Fatalf("expected Pass to be %v but was %v: %v", testCase.shouldPass, r.Pass, r.Message)
+			}
+		})
 	}
 }

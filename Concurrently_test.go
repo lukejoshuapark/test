@@ -12,12 +12,12 @@ func TestConcurrently(t *testing.T) {
 
 	// Act.
 	f1 := func() {
-		time.Sleep(time.Millisecond * 10)
+		time.Sleep(time.Millisecond * 100)
 		atomic.AddInt32(&c, 1)
 	}
 
 	f2 := func() {
-		time.Sleep(time.Millisecond * 10)
+		time.Sleep(time.Millisecond * 100)
 		atomic.AddInt32(&c, 1)
 	}
 
@@ -31,7 +31,7 @@ func TestConcurrently(t *testing.T) {
 	}
 
 	dt := et.Sub(bt)
-	if dt < time.Millisecond*10 || dt > time.Millisecond*18 {
-		t.Fatalf("expected a time delta of 10ms but was %v", dt)
+	if dt > time.Millisecond*120 || dt < time.Millisecond*80 {
+		t.Fatalf("expected a time delta of 100ms but was %v", dt)
 	}
 }

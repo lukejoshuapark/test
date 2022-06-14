@@ -1,6 +1,9 @@
 package does
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestPanic(t *testing.T) {
 	f1 := 5
@@ -21,12 +24,14 @@ func TestPanic(t *testing.T) {
 	}
 
 	for i, testCase := range testCases {
-		// Arrange and Act.
-		r := Panic.Evaluate(testCase.given)
+		t.Run(fmt.Sprintf("Test Case %v", i), func(t *testing.T) {
+			// Arrange and Act.
+			r := Panic.Evaluate(testCase.given)
 
-		// Assert.
-		if r.Pass != testCase.shouldPass {
-			t.Fatalf("expected testCase %v Pass to be %v but was %v: %v", i, testCase.shouldPass, r.Pass, r.Message)
-		}
+			// Assert.
+			if r.Pass != testCase.shouldPass {
+				t.Fatalf("expected Pass to be %v but was %v: %v", testCase.shouldPass, r.Pass, r.Message)
+			}
+		})
 	}
 }
